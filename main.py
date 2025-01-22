@@ -1,4 +1,5 @@
 import random
+import statistics
 
 def random_list(n):
     return [random.randint(0,99) for _ in range(n)]
@@ -7,8 +8,9 @@ def find_mean(lst):
     return sum(lst)/len(lst) if lst else float('nan')
 
 def find_median(lst):
+    sorted_lst = sorted(lst)
     len_lst = len(lst)
-    return lst[len_lst // 2] if len_lst % 2 != 0 else ((lst[len_lst // 2 - 1]+ lst[len_lst // 2])/2)
+    return sorted_lst[len_lst // 2] if len_lst % 2 != 0 else ((sorted_lst[len_lst // 2 - 1]+ sorted_lst[len_lst // 2])/2)
 
 def find_mode(lst):
     frequency = {}
@@ -33,8 +35,13 @@ lst = random_list(n)
 
 print(lst)
 print('Mean value: ', find_mean(lst))
+print('Statistics Mean value: ', statistics.mean(lst), '\n')
 print('Median: ', find_median(lst))
+print('Statistics Median: ', statistics.median(lst), '\n')
 print('Mode: ', find_mode(lst))
-print('Range: ', find_range(lst))
+print('Statistics Mode: ', statistics.mode(lst), '\n')
+print('Range: ', find_range(lst), '\n')
 print('Variance: ', find_variance(lst))
+print('Statistics Variance: ', statistics.variance(lst), '\n')
 print('Standart Deviation: ', find_standart_deviation(lst))
+print('Statistics Standart Deviation: ', statistics.stdev(lst), '\n')
