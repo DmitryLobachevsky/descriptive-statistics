@@ -24,6 +24,9 @@ def find_variance(lst):
     mean = find_mean(lst)
     return sum((item - mean) ** 2 for item in lst) / (len(lst) - 1)
 
+def find_standart_deviation(lst):
+    return find_variance(lst) ** 0.5
+
 n = int(input('Enter the array dimension: '))
 
 lst = random_list(n)
@@ -34,3 +37,4 @@ print('Median: ', find_median(lst))
 print('Mode: ', find_mode(lst))
 print('Range: ', find_range(lst))
 print('Variance: ', find_variance(lst))
+print('Standart Deviation: ', find_standart_deviation(lst))
